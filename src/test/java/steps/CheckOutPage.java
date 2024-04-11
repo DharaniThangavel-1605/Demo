@@ -27,9 +27,13 @@ public class CheckOutPage extends BaseClass{
 		try {
 			driver.findElement(By.xpath("//button[text()='Make payment']")).click();
 			reportStep("Make Payment is clicked", "Pass");
-		} catch (Exception e) {
+		} catch (StaleElementReferenceException e) {
 			reportStep("Make Payment is not at all clicked", "Fail");
 		}
+		catch(Exception e)
+			{
+				reportStep("Make Payment is not at all clicked", "Fail");
+			}
 		return new OrderScreenPage();
 	}	    
 }
